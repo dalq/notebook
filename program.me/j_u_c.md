@@ -81,4 +81,8 @@
 - FIFO和FILO
 
 #### ConcurrentLinkedQueue
+- 链表
+- FIFO
+- 通过volatile实现多线程对于竞争资源的互斥访问
+
 #### ConcurrentLinkedDeque

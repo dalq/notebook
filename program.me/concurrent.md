@@ -1,7 +1,8 @@
 ## 线程的状态
 - new - runnable - blocked(wait, lock, sleep join等) - running - dead
+- 阻塞状态分为等待阻塞、同步阻塞、其他阻塞
 
-## 线程实现的几种方式(ref)[http://www.cnblogs.com/hanganglin/p/3517178.html]
+## 线程实现的几种方式[ref](http://www.cnblogs.com/hanganglin/p/3517178.html)
 - 继承Thread类：多线程之间无法共享资源
 - 实现Runnable接口（推荐）：多个线程之间需要处理共享资源的时候
 - FutureTask
@@ -13,11 +14,11 @@
 - run()：和普通的成员函数一样，可以被重复调用
 
 ## synchronized
-- 实例锁与对象锁：static synchronized 可以看作是类锁，普通synchronized可以看作是对象锁，只针对**这个对象的锁**(ref)[http://wangkuiwu.github.io/2012/08/04/threads-basic/]
+- 实例锁与对象锁：static synchronized 可以看作是类锁，普通synchronized可以看作是对象锁，只针对**这个对象的锁**[ref](http://wangkuiwu.github.io/2012/08/04/threads-basic/)
 - 基本原则：线程A访问对象a的synchronized方法或者代码块，线程B都于**所有**同步的方法或者代码块的访问都将被阻塞，但是对于对象a的非同步代码块是可以访问的
 
 ## wait()、notify()
-- (t1.wait()应该是让“线程t1”等待；但是，为什么却是让“主线程main”等待了呢？)[http://wangkuiwu.github.io/2012/08/05/threads-basic/]
+- [t1.wait()应该是让“线程t1”等待；但是，为什么却是让“主线程main”等待了呢？](http://wangkuiwu.github.io/2012/08/05/threads-basic/)
 - Object.wait()、Object.notify()和Object.notifyAll()方法必须在synchronized同步块内使用
 
 ## yield()
@@ -25,4 +26,16 @@
 - wait()是会线程释放它所持有对象的同步锁，而yield()方法不会释放锁。
 
 ## sleep()
+- wait()会释放对象的同步锁，而sleep()则不会释放锁
 
+## join()
+
+## interrupt()
+
+
+## 线程优先级
+- t2.setDaemon(true); //设置为守护线程
+- 当 调用了exit()方法，并且exit()有权限被正常执行、或者所有的“非守护线程”都死了(即JVM中仅仅只有“守护线程”)。JVM就会终止
+- 当只剩下守护线程运行时，JVM会自动退出
+
+## 生产消费问题
