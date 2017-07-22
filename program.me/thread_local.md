@@ -9,4 +9,4 @@
     + threadFactory：线程池通过ThreadFactory创建线程
     + handler：某任务添加到线程池中，而线程池拒绝该任务时，线程池会通过handler进行相应的处理
 - 状态：running-shutdown/stop-tidying-terminated
-- 拒绝策略：AbortPolicy（默认、直接抛异常）, CallerRunsPolicy, DiscardOldestPolicy和DiscardPolicy 
+- 拒绝策略：AbortPolicy（默认、直接抛异常）, CallerRunsPolicy（被拒绝的任务添加到"线程池正在运行的线程"中取运行）, DiscardOldestPolicy（放弃队列中最旧的任务，然后件被拒绝的任务添加到队列中去）和DiscardPolicy（丢弃被拒绝的任务）

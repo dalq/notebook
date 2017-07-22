@@ -1,4 +1,4 @@
-## 锁
+ ## 锁
 - 锁分为两类：同步锁（synchronized关键字），juc包中的锁
 - j.u.c中的锁：
     - 独占锁：ReentrantLock
