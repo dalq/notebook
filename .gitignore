@@ -26,6 +26,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 javacode/target/
+.DS_Store
 
 ### NetBeans ###
 /nbproject/private/
@@ -36,4 +37,7 @@ javacode/target/
 
 ### VS Code ###
 .vscode/
-.DS_Store
+
+### PyCharm ###
+.venv
+pycode/.venv
