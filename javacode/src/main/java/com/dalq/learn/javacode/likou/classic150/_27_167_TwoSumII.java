@@ -29,9 +29,28 @@ public class _27_167_TwoSumII {
         return new int[]{-1, -1};
     }
 
+    public int[] twoSum2(int[] numbers, int target) {
+        Arrays.sort(numbers);
+        int low = 0, high = numbers.length - 1;
+        while (low < high) {
+            if (numbers[low] + numbers[high] == target) {
+                return new int[]{low, high};
+            } else if (numbers[low] + numbers[high] < target) {
+                low++;
+            } else {
+                high--;
+            }
+        }
+        return new int[]{-1, -1};
+    }
+
     public static void main(String[] args) {
         System.out.println(Arrays.toString(new _27_167_TwoSumII().twoSum(new int[]{2, 7, 11, 15}, 9)));
         System.out.println(Arrays.toString(new _27_167_TwoSumII().twoSum(new int[]{2,3,4}, 6)));
         System.out.println(Arrays.toString(new _27_167_TwoSumII().twoSum(new int[]{-1, 0}, -1)));
+
+        System.out.println(Arrays.toString(new _27_167_TwoSumII().twoSum2(new int[]{2, 7, 11, 15}, 9)));
+        System.out.println(Arrays.toString(new _27_167_TwoSumII().twoSum2(new int[]{2,3,4}, 6)));
+        System.out.println(Arrays.toString(new _27_167_TwoSumII().twoSum2(new int[]{-1, 0}, -1)));
     }
 }
