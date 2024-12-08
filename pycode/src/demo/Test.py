@@ -1,4 +1,4 @@
-from ListStudy import fib
+import numpy as np
 
 
 class Test:
@@ -19,4 +19,6 @@ class Test:
             return_list.append(kw[1])
     print('return_list is: %s' % ','.join(return_list))
 
-    print(fib(6))
+
+if __name__ == '__main__':
+    help(np.ones)
