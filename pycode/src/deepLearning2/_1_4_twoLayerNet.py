@@ -68,7 +68,9 @@ if __name__ == '__main__':
     optimizer = SGD(lr=learning_rate)
     #
     data_size = len(x)
-    max_iters = data_size
+    # 在Python中，//并不是注释的意思。
+    # //在Python中是一个整数除法运算符，它用于执行两个数之间的除法运算，并返回结果的整数部分。
+    max_iters = data_size // batch_size
     total_loss = 0
     loss_count = 0
     loss_list = []
@@ -97,7 +99,31 @@ if __name__ == '__main__':
                 loss_list.append(avg_loss)
                 total_loss, loss_count = 0, 0
 
+    # 学习结果
+    plt.rcParams['font.sans-serif'] = ['Alibaba PuHuiTi']  # 设置中文字体
+    plt.rcParams['axes.unicode_minus'] = False  # 解决负号'-'显示为方块的问题
     plt.plot(np.arange(len(loss_list)), loss_list, label='train')
-    plt.xlabel('iterations (x10)')
-    plt.ylabel('loss')
+    plt.xlabel('迭代次数 (x10)')
+    plt.ylabel('损失')
+    plt.show()
+
+    # 学习后的区域划分/决策边界
+    h = 0.001
+    x_min, x_max = x[:, 0].min() - .1, x[:, 0].max() + .1
+    y_min, y_max = x[:, 1].min() - .1, x[:, 1].max() + .1
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+    X = np.c_[xx.ravel(), yy.ravel()]
+    score = model.predict(X)
+    predict_cls = np.argmax(score, axis=1)
+    Z = predict_cls.reshape(xx.shape)
+    plt.contourf(xx, yy, Z)
+    plt.axis('off')
+
+    # 绘制数据点?
+    x, t = spiral.load_data()
+    N = 100
+    CLS_NUM = 3
+    markers = ['o', 'x', '^']
+    for i in range(CLS_NUM):
+        plt.scatter(x[i * N:(i + 1) * N, 0], x[i * N:(i + 1) * N, 1], s=40, marker=markers[i])
     plt.show()
