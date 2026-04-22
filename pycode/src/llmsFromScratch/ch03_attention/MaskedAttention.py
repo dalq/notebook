@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from ch03_attention.AttentionWithTrainedWeight import SelfAttention_V2
+from llmsFromScratch.ch03_attention.AttentionWithTrainedWeight import SelfAttention_V2
 
 # 相较于SelfAttention_V2,增加了掩码机制,以及dropout
 class CausalAttention(nn.Module):

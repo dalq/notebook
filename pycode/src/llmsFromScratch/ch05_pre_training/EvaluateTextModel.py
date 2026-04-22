@@ -1,6 +1,6 @@
 import torch
 import tiktoken
-from ch04_gpt.YourGPTModel import GPTModel, generate_text_simple
+from llmsFromScratch.ch04_gpt.YourGPTModel import GPTModel, generate_text_simple
 
 GPT_CONFIG_124M = {
     "vocab_size": 50257,    # Vocabulary size

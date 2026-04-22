@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
 import tiktoken
-from ch04_gpt.TransformerBlock import TransformerBlock
-from ch04_gpt.LayNorm_Glue_FFN import LayerNorm, GPT_CONFIG_124M
+from llmsFromScratch.ch04_gpt.TransformerBlock import TransformerBlock
+from llmsFromScratch.ch04_gpt.LayNorm_Glue_FFN import LayerNorm, GPT_CONFIG_124M
 
 class GPTModel(nn.Module):
     def __init__(self, cfg):

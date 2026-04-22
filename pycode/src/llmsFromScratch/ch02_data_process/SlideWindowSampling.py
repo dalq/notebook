@@ -1,7 +1,6 @@
 import tiktoken
 import torch
 from torch.utils.data import Dataset, DataLoader
-from SimpleTokenizer import SimpleTokenizerV2
 
 class GPTDatasetV1(Dataset):
     def __init__(self, text, tokenizer, max_length, stride):
@@ -13,6 +12,8 @@ class GPTDatasetV1(Dataset):
 
         for i in range(0, len(token_ids) - max_length, stride):
             input_chunk = token_ids[i:i + max_length]
+            # input 和 target 错开一位：target 就是 input 右移一个 token
+            # 这就是 GPT 的自回归训练目标:给定前面的 token，预测下一个 token
             target_chunk = token_ids[i + 1: i + max_length + 1]
             self.input_ids.append(torch.tensor(input_chunk))
             self.target_ids.append(torch.tensor(target_chunk))

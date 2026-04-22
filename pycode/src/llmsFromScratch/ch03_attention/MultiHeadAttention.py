@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from ch03_attention.MaskedAttention import CausalAttention
+from llmsFromScratch.ch03_attention.MaskedAttention import CausalAttention
 
 # 创建 N 个独立的 CausalAttention，各自有自己的 W_q/W_k/W_v
 class MultiHeadAttentionWrapper(nn.Module):

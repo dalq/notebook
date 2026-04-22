@@ -41,3 +41,5 @@ javacode/target/
 ### PyCharm ###
 .venv
 pycode/.venv
+/__pycache__/
+*.pyc

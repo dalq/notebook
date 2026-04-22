@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
-from ch03_attention.MultiHeadAttention import MultiHeadAttention
-from ch04_gpt.LayNorm_Glue_FFN import FeedForward, LayerNorm, GPT_CONFIG_124M
+from llmsFromScratch.ch03_attention.MultiHeadAttention import MultiHeadAttention
+from llmsFromScratch.ch04_gpt.LayNorm_Glue_FFN import FeedForward, LayerNorm, GPT_CONFIG_124M
 
 
 # 多头注意力、层归一化、dropout、前馈层和GELU激活函数
